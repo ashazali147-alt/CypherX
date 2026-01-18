@@ -1,0 +1,523 @@
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 1
+   GLOBAL + LAYOUT FOUNDATION
+--------------------------------*/
+
+:root {
+    --bg-dark: #0a0a0f;
+    --bg-light: #f5f5f5;
+
+    --text-dark: #f5f5f5;
+    --text-light: #111111;
+
+    --chunk-dark: #14141d;
+    --chunk-light: #ffffff;
+
+    --border-dark: #2a2a3a;
+    --border-light: #dcdcdc;
+
+    --accent: #4f46e5;
+    --accent-soft: #6366f1;
+
+    --danger: #ef4444;
+    --success: #22c55e;
+
+    --radius: 14px;
+    --transition: 0.25s ease;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: system-ui, sans-serif;
+    min-height: 100vh;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+/* Themes */
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+/* Main wrapper */
+#cx-main {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 2
+   HEADER STYLING
+--------------------------------*/
+
+#cx-header {
+    width: 100%;
+    padding: 18px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-dark);
+    background: transparent;
+}
+
+body.light #cx-header {
+    border-bottom: 1px solid var(--border-light);
+}
+
+#cx-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+/* Theme Toggle Button */
+#themeToggle {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-dark);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+body.light #themeToggle {
+    border: 1px solid var(--border-light);
+}
+
+#themeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+}
+
+#themeToggle:active {
+    transform: translateY(0);
+}
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 3
+   CHUNK CONTAINER STYLING
+--------------------------------*/
+
+.cx-chunk {
+    background-color: var(--chunk-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+/* Light mode version */
+body.light .cx-chunk {
+    background-color: var(--chunk-light);
+    border: 1px solid var(--border-light);
+}
+
+/* Chunk titles */
+.cx-chunk h2 {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+    font-weight: 600;
+}
+
+/* Spacing between elements inside chunks */
+.cx-chunk p,
+.cx-chunk label,
+.cx-chunk ol,
+.cx-chunk pre {
+    margin-bottom: 10px;
+}
+
+/* Ordered list styling (How to Solve section) */
+.cx-chunk ol {
+    padding-left: 20px;
+}
+
+.cx-chunk ol li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+/* Hidden utility class */
+.hidden {
+    display: none;
+}
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 4
+   BUTTONS, INPUTS, TEXTAREAS
+--------------------------------*/
+
+/* Textareas */
+textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-dark);
+    background-color: rgba(20, 20, 30, 0.9);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-family: "JetBrains Mono", monospace;
+    resize: vertical;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+body.light textarea {
+    background-color: #fafafa;
+    border: 1px solid var(--border-light);
+    color: var(--text-light);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border-dark);
+    background-color: rgba(20, 20, 30, 0.9);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+body.light input[type="text"],
+body.light input[type="search"],
+body.light input[type="number"],
+body.light input[type="password"] {
+    background-color: #fafafa;
+    border: 1px solid var(--border-light);
+    color: var(--text-light);
+}
+
+/* Select dropdown */
+select {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border-dark);
+    background-color: rgba(20, 20, 30, 0.9);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+body.light select {
+    background-color: #fafafa;
+    border: 1px solid var(--border-light);
+    color: var(--text-light);
+}
+
+/* Button Row */
+.cx-btn-row {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+/* Buttons */
+button {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+/* Primary button (Encrypt) */
+#encryptBtn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    color: white;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.45);
+}
+
+#encryptBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(79, 70, 229, 0.55);
+}
+
+/* Secondary button (Decrypt, Submit, Start Challenge) */
+#decryptBtn,
+#submitAnswerBtn,
+#startChallengeBtn {
+    background-color: transparent;
+    border: 1px solid var(--border-dark);
+    color: inherit;
+}
+
+body.light #decryptBtn,
+body.light #submitAnswerBtn,
+body.light #startChallengeBtn {
+    border: 1px solid var(--border-light);
+}
+
+#decryptBtn:hover,
+#submitAnswerBtn:hover,
+#startChallengeBtn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Feedback text */
+#challengeFeedback {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 5
+   CHALLENGE MODE STYLING
+--------------------------------*/
+
+/* Timer + Score container */
+#challenge-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Timer */
+#timerDisplay {
+    color: var(--danger);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Score */
+#scoreDisplay {
+    color: var(--accent-soft);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Cipher display box */
+#challengeCipher {
+    background-color: rgba(20, 20, 30, 0.9);
+    border: 1px solid var(--border-dark);
+    padding: 12px;
+    border-radius: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+    max-height: 150px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: 12px;
+}
+
+body.light #challengeCipher {
+    background-color: #fafafa;
+    border: 1px solid var(--border-light);
+}
+
+/* Answer input */
+#challengeAnswer {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+/* Feedback text */
+#challengeFeedback {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    min-height: 20px;
+}
+
+/* Start/Submit buttons spacing */
+#startChallengeBtn,
+#submitAnswerBtn {
+    margin-top: 10px;
+}
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 6
+   THEME OVERRIDES (LIGHT & DARK)
+--------------------------------*/
+
+/* Smooth transitions for theme switching */
+body, 
+textarea, 
+input, 
+select, 
+button, 
+.cx-chunk, 
+#challengeCipher {
+    transition: background-color var(--transition), 
+                color var(--transition), 
+                border-color var(--transition);
+}
+
+/* Light mode overrides */
+body.light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+/* Light mode chunk styling */
+body.light .cx-chunk {
+    background-color: var(--chunk-light);
+    border-color: var(--border-light);
+}
+
+/* Light mode textareas */
+body.light textarea {
+    background-color: #ffffff;
+    border-color: var(--border-light);
+    color: var(--text-light);
+}
+
+/* Light mode inputs */
+body.light input[type="text"],
+body.light input[type="search"],
+body.light input[type="number"],
+body.light input[type="password"] {
+    background-color: #ffffff;
+    border-color: var(--border-light);
+    color: var(--text-light);
+}
+
+/* Light mode select */
+body.light select {
+    background-color: #ffffff;
+    border-color: var(--border-light);
+    color: var(--text-light);
+}
+
+/* Light mode cipher box */
+body.light #challengeCipher {
+    background-color: #ffffff;
+    border-color: var(--border-light);
+    color: var(--text-light);
+}
+
+/* Light mode buttons (secondary) */
+body.light #decryptBtn,
+body.light #submitAnswerBtn,
+body.light #startChallengeBtn {
+    border-color: var(--border-light);
+}
+
+/* Light mode header border */
+body.light #cx-header {
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Light mode theme toggle button */
+body.light #themeToggle {
+    border-color: var(--border-light);
+}
+
+/* Hover states remain subtle in light mode */
+body.light button:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+/* ------------------------------
+   PHASE 2 — CSS CHUNK 7
+   RESPONSIVE DESIGN
+--------------------------------*/
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+    #cx-main {
+        padding: 16px;
+        gap: 20px;
+    }
+
+    #cx-header {
+        padding: 14px 18px;
+    }
+
+    #cx-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .cx-chunk {
+        padding: 18px 20px;
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+    #cx-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #themeToggle {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .cx-btn-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    textarea {
+        min-height: 90px;
+    }
+
+    #challengeCipher {
+        max-height: 120px;
+        font-size: 0.85rem;
+    }
+
+    #challenge-info {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+    }
+
+    select {
+        width: 100%;
+    }
+}
+
+/* Ultra-small screens (very small phones) */
+@media (max-width: 400px) {
+    #cx-header h1 {
+        font-size: 1.3rem;
+    }
+
+    textarea,
+    input[type="text"] {
+        font-size: 0.85rem;
+    }
+
+    button {
+        font-size: 0.85rem;
+    }
+}
+
