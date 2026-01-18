@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CypherX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="cx-header">
+        <h1>CypherX</h1>
+        <button id="themeToggle">Light Mode</button>
+    </header>
+
+    <!-- MAIN WRAPPER -->
+    <main id="cx-main">
+        <!-- CHUNK 1 — CYPHER ENGINE -->
+        <section class="cx-chunk" id="chunk-engine">
+            <h2>Cypher Engine</h2>
+
+            <textarea id="inputText" placeholder="Enter your text..."></textarea>
+
+            <div class="cx-btn-row">
+                <button id="encryptBtn">Encrypt</button>
+                <button id="decryptBtn">Decrypt</button>
+            </div>
+
+            <textarea id="outputText" placeholder="Output will appear here..." readonly></textarea>
+        </section>
+        <!-- CHUNK 2 — CHALLENGE MODE -->
+        <section class="cx-chunk" id="chunk-challenge">
+            <h2>Challenge Mode</h2>
+
+            <label for="difficultySelect">Difficulty:</label>
+            <select id="difficultySelect">
+                <option value="easy">Easy</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <div id="challenge-info">
+                <p>Timer: <span id="timerDisplay">--</span></p>
+                <p>Score: <span id="scoreDisplay">0</span></p>
+            </div>
+
+            <button id="startChallengeBtn">Start Challenge</button>
+
+            <div id="challengeArea" class="hidden">
+                <p><strong>Encrypted Text:</strong></p>
+                <pre id="challengeCipher"></pre>
+
+                <input id="challengeAnswer" placeholder="Your answer...">
+
+                <button id="submitAnswerBtn">Submit</button>
+
+                <p id="challengeFeedback"></p>
+            </div>
+        </section>
+        <!-- CHUNK 3 — HOW TO SOLVE -->
+        <section class="cx-chunk" id="chunk-howto">
+            <h2>How to Solve</h2>
+
+            <p>CypherX uses multiple encryption layers. To solve a challenge, reverse them in order:</p>
+
+            <ol>
+                <li>ROT13</li>
+                <li>Caesar Cipher</li>
+                <li>Vigenère Cipher</li>
+                <li>Base64</li>
+                <li>Hexadecimal</li>
+                <li>Binary</li>
+                <li>Morse Code</li>
+                <li>Replace emojis with vowels</li>
+            </ol>
+        </section>
+        <!-- CHUNK 4 — SETTINGS -->
+        <section class="cx-chunk" id="chunk-settings">
+            <h2>Settings</h2>
+
+            <label>
+                <input type="checkbox" id="emojiMaskToggle" checked>
+                Enable Emoji Vowel Masking
+            </label>
+
+            <label>
+                <input type="checkbox" id="soundToggle">
+                Enable Sound Effects
+            </label>
+        </section>
+        <!-- CHUNK 5 — ABOUT -->
+        <section class="cx-chunk" id="chunk-about">
+            <h2>About CypherX</h2>
+            <p>CypherX is a modular encryption engine built for experimentation, logic, and multi-layer cipher processing.</p>
+            <p>Created by Ashaz.</p>
+        </section>
+
+    </main>
+
+</body>
+</html>
